@@ -27,22 +27,40 @@
 export function calculateGrade(score, hasExtraCredit) {
 	// Your code here
 
-	if (0 > score > 100) {
-		console.log("Invalid");
-	} else if (hasExtraCredit) {
-		score += 5;
-		score = Math.min(score, 100);
+	if (score < 0 || score > 100) {
+		return "INVALID";
+	}
 
-		console.log(`Result is : ${score}`);
-	} else if (0 <= score <= 59) {
-		console.log(`The letter grade : F `);
-	} else if (60 <= score <= 69) {
-		console.log(`The letter grade : D `);
-	} else if (70 <= score <= 79) {
-		console.log(`The letter grade : C `);
-	} else if (80 <= score <= 89) {
-		console.log(`The letter grade : B `);
-	} else if (90 <= score <= 100) {
-		console.log(`The letter grade : A `);
+	if (hasExtraCredit) {
+		score += 5;
+		if (score > 100) {
+			score = 100;
+		}
+	}
+
+	switch (true) {
+		case score >= 90:
+			return "A";
+
+			break;
+
+		case score >= 80:
+			return "B";
+
+			break;
+
+		case score >= 70:
+			return "C";
+
+			break;
+
+		case score >= 60:
+			return "D";
+
+			break;
+
+		default:
+			return "F";
+			break;
 	}
 }
