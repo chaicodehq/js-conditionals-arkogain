@@ -40,7 +40,7 @@ export function getTicketPrice(age, isWeekend) {
 		return 18;
 	} else if (age <= 60 && !isWeekend) {
 		return 10;
-	} else if (age > 60 && isWeekend) {
+	} else if (age >= 60 && isWeekend) {
 		return 13;
 	} else {
 		return -1;
