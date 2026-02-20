@@ -39,22 +39,20 @@ export function calculateShipping(weight, country, orderTotal) {
 			return 5;
 		} else if (weight <= 5) {
 			return 10;
-		} else {
+		} else if (weight > 5) {
 			return 15;
+		} else if (orderTotal > 50) {
+			return 0;
 		}
-	} else if (country !== "US") {
+	} else {
 		if (weight <= 1) {
 			return 15;
 		} else if (weight <= 5) {
 			return 25;
-		} else {
+		} else if (weight > 5) {
 			return 40;
+		} else if (orderTotal > 100) {
+			return 0;
 		}
-	}
-
-	if (country === "US" && orderTotal > 50) {
-		return 0;
-	} else if (country !== "US" && orderTotal > 100) {
-		return 0;
 	}
 }
