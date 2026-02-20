@@ -46,6 +46,8 @@ export function calculateCoffeePrice(size, type, extras = {}) {
 		return -1;
 	}
 
+	let price = 3;
+
 	if (size === "small") {
 		price = 3;
 	} else if (size === "medium") {
