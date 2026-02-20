@@ -74,5 +74,5 @@ export function calculateCoffeePrice(size, type, extras = {}) {
 		price += 0.75;
 	}
 
-	return Math.round(price);
+	return Math.round(price * 100) / 100;
 }
