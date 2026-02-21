@@ -14,7 +14,7 @@
  *
  * Strength levels based on how many criteria are met:
  *   - 0–1 criteria → "weak"
- *   - 2–3 criteria → "medium"
+ *   - 2–3 criteria → "mjedium"
  *   - 4 criteria   → "strong"
  *   - All 5        → "very strong"
  *
@@ -26,5 +26,26 @@
  * @returns {string} "weak", "medium", "strong", or "very strong"
  */
 export function checkPasswordStrength(password) {
-  // Your code here
+	// Your code here
+
+	if (typeof password !== "" || password === "") {
+		return "weak";
+	}
+
+	const criteriaCheck = [
+		password.length >= 8,
+		/[A-Z]/.test(password),
+		/[a-z]/.test(password),
+		/\d/.test(password),
+		/[!@#$%^&*()_+\-=\[\]{}|;:,.<>?]/.test(password),
+	];
+
+	const checkCounter = criteriaCheck.filter(Boolean).length;
+
+	return (
+		checkCounter <= 1 ? "weak"
+		: checkCounter <= 3 ? "medium"
+		: checkCounter === 4 ? "strong"
+		: "very strong"
+	);
 }
