@@ -27,7 +27,7 @@
  */
 export function checkPasswordStrength(password) {
 	// Your code here
-	if (typeof password !== "string" || password === "string") {
+	if (typeof password !== "string" || password === "") {
 		return "weak";
 	}
 
