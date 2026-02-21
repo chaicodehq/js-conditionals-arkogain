@@ -27,6 +27,9 @@
  */
 export function checkPasswordStrength(password) {
 	// Your code here
+	if (typeof password !== "" && password === "") {
+		return "weak";
+	}
 
 	const criteriaCheck = [
 		password.length >= 8,
@@ -44,8 +47,4 @@ export function checkPasswordStrength(password) {
 		: checkCounter === 4 ? "strong"
 		: "very strong"
 	);
-
-	if (typeof password !== "" || password === "") {
-		return "weak";
-	}
 }
