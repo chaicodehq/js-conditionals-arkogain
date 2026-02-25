@@ -35,40 +35,28 @@ export function calculateTip(billAmount, serviceRating) {
 	if ((billAmount = 0 || billAmount < 0)) {
 		return null;
 	} else if (
-		serviceRating != Number ||
+		!Number.isInteger(serviceRating) ||
 		serviceRating < 1 ||
 		serviceRating > 5
 	) {
 		return null;
-	} else if ((serviceRating = 1)) {
-		return {
-			tipPercentage: 5,
-			tipAmount: (billAmount * 0.05 * 100) / 100,
-			totalAmount: (billAmount * 0.05 * 100) / 100,
-		};
-	} else if ((serviceRating = 2)) {
-		return {
-			tipPercentage: 10,
-			tipAmount: Math.round(billAmount * 0.1 * 100) / 100,
-			totalAmount: billAmount + Math.round(billAmount * 0.1 * 100) / 100,
-		};
-	} else if ((serviceRating = 3)) {
-		return {
-			tipPercentage: 15,
-			tipAmount: Math.round(billAmount * 0.15 * 100) / 100,
-			totalAmount: billAmount + Math.round(billAmount * 0.15 * 100) / 100,
-		};
-	} else if ((serviceRating = 4)) {
-		return {
-			tipPercentage: 20,
-			tipAmount: Math.round(billAmount * 0.2 * 100) / 100,
-			totalAmount: billAmount + Math.round(billAmount * 0.2 * 100) / 100,
-		};
-	} else if ((serviceRating = 5)) {
-		return {
-			tipPercentage: 25,
-			tipAmount: Math.round(billAmount * 0.25 * 100) / 100,
-			totalAmount: billAmount + Math.round(billAmount * 0.25 * 100) / 100,
-		};
 	}
+
+	const tips = {
+		1: 5,
+		2: 10,
+		3: 15,
+		4: 20,
+		5: 25,
+	};
+
+	const tipPercentage1 = tips[serviceRating];
+	const tipAmount1 = Number(((serviceRating * billAmount) / 100).toFixed(2));
+	const totalAmount1 = Number(billAmount + tipAmount1).toFixed(2);
+
+	return {
+		tipPercentage: tipPercentage1,
+		tipAmount: tipAmount1,
+		totalAmount: totalAmount1,
+	};
 }
