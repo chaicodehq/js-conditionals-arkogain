@@ -34,42 +34,37 @@ export function calculateTip(billAmount, serviceRating) {
 
 	if ((billAmount = 0 || billAmount < 0)) {
 		return null;
-	}
-
-	if (serviceRating != Number || serviceRating < 1 || serviceRating > 5) {
+	} else if (
+		serviceRating != Number ||
+		serviceRating < 1 ||
+		serviceRating > 5
+	) {
 		return null;
-	}
-
-	if (serviceRating === 1) {
+	} else if (serviceRating === 1) {
 		return {
 			tipPercentage: 5,
-			tipAmount: Math.round(billAmount * 0.05 * 100) / 100,
-			totalAmount: billAmount + Math.round(billAmount * 0.05 * 100) / 100,
+			tipAmount: (billAmount * 0.05 * 100) / 100,
+			totalAmount: (billAmount * 0.05 * 100) / 100,
 		};
-	}
-
-	if (serviceRating === 2) {
+	} else if (serviceRating === 2) {
 		return {
 			tipPercentage: 10,
 			tipAmount: Math.round(billAmount * 0.1 * 100) / 100,
 			totalAmount: billAmount + Math.round(billAmount * 0.1 * 100) / 100,
 		};
-	}
-	if (serviceRating === 3) {
+	} else if (serviceRating === 3) {
 		return {
 			tipPercentage: 15,
 			tipAmount: Math.round(billAmount * 0.15 * 100) / 100,
 			totalAmount: billAmount + Math.round(billAmount * 0.15 * 100) / 100,
 		};
-	}
-	if (serviceRating === 4) {
+	} else if (serviceRating === 4) {
 		return {
 			tipPercentage: 20,
 			tipAmount: Math.round(billAmount * 0.2 * 100) / 100,
 			totalAmount: billAmount + Math.round(billAmount * 0.2 * 100) / 100,
 		};
-	}
-	if (serviceRating === 5) {
+	} else if (serviceRating === 5) {
 		return {
 			tipPercentage: 25,
 			tipAmount: Math.round(billAmount * 0.25 * 100) / 100,
