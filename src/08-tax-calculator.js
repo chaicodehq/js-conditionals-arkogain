@@ -27,7 +27,7 @@
  */
 export function calculateTax(income) {
 	// Your code here
-	if (`income <= 0`) {
+	if (income <= 0) {
 		return 0;
 	} else if (income <= 10000) {
 		return 0;
