@@ -32,9 +32,10 @@
 export function calculateTip(billAmount, serviceRating) {
 	// Your code here
 
-	if ((billAmount = 0 || billAmount < 0)) {
+	if (billAmount <= 0) {
 		return null;
-	} else if (
+	}
+	if (
 		!Number.isInteger(serviceRating) ||
 		serviceRating < 1 ||
 		serviceRating > 5
