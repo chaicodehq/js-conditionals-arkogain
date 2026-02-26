@@ -34,4 +34,31 @@
  */
 export function calculateParkingFee(hours, vehicleType) {
 	// Your code here
+
+	if (hours <= 0) {
+		return -1;
+	}
+
+	const rates = {
+		car: { first: 5, additional: 3, max: 30 },
+		motorcycle: { first: 3, additional: 2, max: 18 },
+		bus: { first: 10, additional: 7, max: 60 },
+	};
+
+	if (!rates[vehicleType]) {
+		return -1;
+	}
+
+	const hour = Math.ceil(hours);
+	const { first, additional, max } = rates[vehicleType];
+
+	let parkingFees;
+
+	if (hour === 1) {
+		parkingFees = first;
+	} else {
+		parkingFees = first + (hour - 1) * additional;
+	}
+
+	return Math.min(parkingFees, max);
 }
