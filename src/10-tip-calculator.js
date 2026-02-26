@@ -52,7 +52,7 @@ export function calculateTip(billAmount, serviceRating) {
 	};
 
 	const tipPercentage = tips[serviceRating];
-	const tipAmount = Number(((serviceRating * billAmount) / 100).toFixed(2));
+	const tipAmount = Number(((tipPercentage * billAmount) / 100).toFixed(2));
 	const totalAmount = Number(billAmount + tipAmount).toFixed(2);
 
 	return {
