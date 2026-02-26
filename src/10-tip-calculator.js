@@ -52,8 +52,8 @@ export function calculateTip(billAmount, serviceRating) {
 	};
 
 	const tipPercentage = tips[serviceRating];
-	const tipAmount = Number(((tipPercentage * billAmount) / 100).toFixed(2));
-	const totalAmount = Number(billAmount + tipAmount).toFixed(2);
+	const tipAmount = (tipPercentage * billAmount) / 100;
+	const totalAmount = billAmount + tipAmount;
 
 	return {
 		tipPercentage,
