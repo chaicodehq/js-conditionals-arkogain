@@ -58,11 +58,11 @@ export function calculateShipping(weight, country, orderTotal) {
 		}
 	}
 
-	if (country === "US" && weight > 0 && orderTotal > 50) {
+	if (weight > 0 && country === "US" && orderTotal > 50) {
 		return 0;
 	}
 
-	if (country !== "US" && weight > 0 && orderTotal > 100) {
+	if (weight > 0 && country !== "US" && orderTotal > 100) {
 		return 0;
 	}
 }
