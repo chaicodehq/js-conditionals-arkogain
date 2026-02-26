@@ -38,7 +38,7 @@ export function getSeasonActivity(month, temperature) {
 
 	let season;
 
-	if (month === 12 || month === 1 || month === 2) {
+	if (month === 1 || month === 2 || month === 12) {
 		season = "Winter";
 	}
 	if (month === 3 || month === 4 || month === 5) {
