@@ -46,6 +46,8 @@ export function getSeasonActivity(month, temperature) {
 		season = "Summer";
 	} else if (month === 9 || month === 10 || month === 11) {
 		season = "Autumn";
+	} else {
+		null;
 	}
 
 	let activity;
@@ -57,10 +59,10 @@ export function getSeasonActivity(month, temperature) {
 			activity = "ice skating";
 		}
 	} else if ((season = "Spring")) {
-		if (temperature > 20) {
-			activity = "hiking";
-		} else if (temperature <= 20) {
+		if (temperature <= 20) {
 			activity = "museum visit";
+		} else if (temperature > 20) {
+			activity = "hiking";
 		}
 	} else if ((season = "Summer")) {
 		if (temperature > 35) {
